@@ -33,16 +33,8 @@ public class currency_rateDAO {
         
     }
     
-    
-    public currency_converterDTO findConverter() {
-        List result = em.createQuery("SELECT c FROM currency_converter c").getResultList();
-        currency_converter converter = (currency_converter) result.get(result.size() - 1);
-        if (converter == null) {
-            throw new EntityNotFoundException("No currencies registered!");
-        }
-        return converter;
-    }   
-    public currency_converterDTO findCurrencyFrom(String currency) {
+
+    public currency_converter findCurrencyFrom(String currency) {
         Query query = em.createQuery("SELECT c FROM Currency c");
         List<currency_converter> currencies = query.getResultList();
 	if(currencies == null || currencies.isEmpty()) {
