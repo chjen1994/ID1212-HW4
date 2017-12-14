@@ -40,6 +40,7 @@ public class currency_manager implements Serializable{
             System.out.println(this.outputCurrency);
             System.out.println(this.amountToConvert);
             outputCurrencyAmount = converterfacade.converter(userCurrency,outputCurrency,amountToConvert );
+            System.out.println("result in manager out curr "+outputCurrencyAmount);
         }catch (Exception e) {
             handleException(e);
         }

@@ -33,10 +33,8 @@ public class converterFacade {
 //        converterDAO.storeConverter(newConverter);
 //    }
     public String converter(String userCurrency, String outputCurrency, Double amountToConvert) {
-        System.out.println(userCurrency);
+        
         currency_converter currency1 = converterDAO.findCurrencyFrom(userCurrency);
-      //currency_converter currency = converterDAO.findCurrentCurrency(userCurrency, outputCurrency, amountToConvert);
-      //System.out.println("haha150"+currency1.getUserCurrency());
       return currency1.convert(outputCurrency, amountToConvert);
     }
     

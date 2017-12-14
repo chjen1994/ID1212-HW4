@@ -14,7 +14,7 @@
         <h:form>
             <p>
                 <h:outputLabel for="convertCurrency" rendered="#{converter_Manager.outputCurrencyAmount != null}"/>
-                <h:outputText id="convertCurrency" value="#{converter_Manager.outputCurrencyAmount} #{converter_Manager.outputCurrency}"/>
+                <h:outputText id="convertCurrency" value="#{converter_Manager.outputCurrencyAmount}"/>
                 <h:outputText rendered="#{converter_Manager.outputCurrencyAmount == null}"  value="Result to be shown here."/>
                 <hr/>
                 <h:outputText value =" From:"/>

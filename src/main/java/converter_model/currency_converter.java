@@ -49,13 +49,14 @@ public class currency_converter implements currency_converterDTO, Serializable{
     
     @Override
     public String convert(String outCurrency, double amount){
+        System.out.println("in model: out curr "+outCurrency+" amount "+amount+" ");
         double output = 0;
         switch (outCurrency) {
             case "SEK":
-                output = conversionOfCurrency(SEK, amount);
+                output = conversionOfCurrency(this.SEK, amount);
                 break;
             case "EURO":
-                output = conversionOfCurrency(EURO, amount);
+                output = this.EURO * amount;
                 break;
             case "USD":
                 output = conversionOfCurrency(USD, amount);
@@ -65,6 +66,7 @@ public class currency_converter implements currency_converterDTO, Serializable{
                 break;
 
         }
+        System.out.println("result: in string"+String.valueOf(output) + " in double "+output);
         return String.valueOf(output);
     }
     
