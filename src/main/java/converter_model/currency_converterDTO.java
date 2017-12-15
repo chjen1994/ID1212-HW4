@@ -11,7 +11,7 @@ package converter_model;
  */
 public interface currency_converterDTO {
     //public double getConvertedAmount(double amount, String fromCurrency, String toCurrency);
-    public Double conversionOfCurrency(Double currency, double amount);
+   
     public String convert(String outCurrency, double amount);
     public double getEURO();
     public double getUSD();

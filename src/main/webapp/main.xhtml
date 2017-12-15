@@ -9,13 +9,13 @@
         <style>body{text-align: center;}</style>
     </h:head>
     <h:body>
-        <h1>Currency Converter</h1>
+        <h1>ChunHeng Jen's Currency Converter</h1>
 
         <h:form>
             <p>
                 <h:outputLabel for="convertCurrency" rendered="#{converter_Manager.outputCurrencyAmount != null}"/>
-                <h:outputText id="convertCurrency" value="#{converter_Manager.outputCurrencyAmount}"/>
-                <h:outputText rendered="#{converter_Manager.outputCurrencyAmount == null}"  value="Result to be shown here."/>
+                <h:outputText id="convertCurrency" value="#{converter_Manager.outputCurrencyAmount} #{converter_Manager.outputCurrency}"/>
+                <h:outputText rendered="#{converter_Manager.outputCurrencyAmount == null}"  value="The converted amount:"/>
                 <hr/>
                 <h:outputText value =" From:"/>
                 <h:selectOneMenu value="#{converter_Manager.userCurrency}">
@@ -32,9 +32,10 @@
                     <f:selectItem itemValue="USD" itemLabel="USD"/>
                 </h:selectOneMenu>
   
+                
+                <hr/>
                 <h:outputLabel for="amount" value="Amount: "/>
                 <h:inputText id="amount" value="#{converter_Manager.amountToConvert}"/>
-                <hr/>
             </p>
             <p>
                 <h:commandButton value="Convert" action="#{converter_Manager.convert()}"/>

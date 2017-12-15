@@ -53,28 +53,25 @@ public class currency_converter implements currency_converterDTO, Serializable{
         double output = 0;
         switch (outCurrency) {
             case "SEK":
-                output = conversionOfCurrency(this.SEK, amount);
+                output = this.SEK * amount;
                 break;
             case "EURO":
                 output = this.EURO * amount;
                 break;
             case "USD":
-                output = conversionOfCurrency(USD, amount);
+                output = this.USD * amount;
                 break;
             case "JPY":
-                output = conversionOfCurrency(JPY, amount);
+                output = this.JPY * amount;
                 break;
 
         }
-        System.out.println("result: in string"+String.valueOf(output) + " in double "+output);
+        //System.out.println("result: in string"+String.valueOf(output) + " in double "+output);
         return String.valueOf(output);
     }
     
     
-    @Override
-    public Double conversionOfCurrency(Double currency, double amount) {
-        return amount * currency;
-    }
+
 
     public String getUserCurrency() {
         return userCurrency;

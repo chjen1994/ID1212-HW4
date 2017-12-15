@@ -27,45 +27,22 @@ public class currency_rateDAO {
     @PersistenceContext(unitName = "convereterPU")
     private EntityManager em;
     
+    
 
-    public void storeConverter(currency_converter newConverter) {
-        em.persist(newConverter);
-        
-    }
-    
-    
-    public currency_converterDTO findConverter() {
-        List result = em.createQuery("SELECT c FROM currency_converter c").getResultList();
-        currency_converter converter = (currency_converter) result.get(result.size() - 1);
-        if (converter == null) {
-            throw new EntityNotFoundException("No currencies registered!");
-        }
-        return converter;
-    }   
     
     public currency_converter findCurrencyFrom(String currency) {
         Query query = em.createQuery("SELECT c FROM currency_converter c");
         List<currency_converter> currencies = query.getResultList();
 	if(currencies == null || currencies.isEmpty()) {
-            throw new EntityNotFoundException("No currency with name: " + currency);
+            throw new EntityNotFoundException("No such currency in the db: " + currency);
         }
         for(currency_converter c : currencies) {
             if(c.getUserCurrency().equals(currency)) {
                 return c;
           }
         }
-        throw new EntityNotFoundException("No currency with name: " + currency);
+        throw new EntityNotFoundException("No such currency in the db: " + currency);
     }
 
-    
-    public currency_converter findCurrentCurrency(String userCurrency, String outputCurrency, Double amountToConvert){
-        //System.out.println(userCurrency);
-        currency_converter currentCurrency = em.find(currency_converter.class, userCurrency);
-        
-        if (currentCurrency == null) {
-            throw new EntityNotFoundException("Currency does not exist " + userCurrency);
-        }
-        
-        return currentCurrency;
-    }
+
 }

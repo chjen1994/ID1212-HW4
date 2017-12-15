@@ -42,9 +42,9 @@ public class converterFacade {
     
     
     
-    public String startConversion(double euro, double usd, double sek, double jpy, double amountToConvert, String inCurrency, String outCurrency) {
-        
-        currency_converter newConverter = new currency_converter(inCurrency, euro, usd, sek, jpy);
-        return newConverter.convert(outCurrency, amountToConvert);
-    }
+//    public String startConversion(double euro, double usd, double sek, double jpy, double amountToConvert, String inCurrency, String outCurrency) {
+//        
+//        currency_converter newConverter = new currency_converter(inCurrency, euro, usd, sek, jpy);
+//        return newConverter.convert(outCurrency, amountToConvert);
+//    }
 }
